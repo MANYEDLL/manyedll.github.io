@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Académicos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .curso {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 15px;
+        }
+        .curso h2 {
+            color: #3498db;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .materias {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #eee;
+        }
+        .materias ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .materias li {
+            padding: 8px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .materias li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>📚 Cursos Académicos</h1>
+
+    <!-- Primer Año -->
+    <div class="curso" onclick="toggleMaterias('primer-anio')">
+        <h2>Primer Año <span>▼</span></h2>
+        <div class="materias" id="primer-anio">
+            <ul>
+                <li>Matemáticas I</li>
+                <li>Física I</li>
+                <li>Programación Básica</li>
+                <li>Inglés Técnico</li>
+                <li>Introducción a la Ingeniería</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Segundo Año -->
+    <div class="curso" onclick="toggleMaterias('segundo-anio')">
+        <h2>Segundo Año <span>▼</span></h2>
+        <div class="materias" id="segundo-anio">
+            <ul>
+                <li>Matemáticas II</li>
+                <li>Física II</li>
+                <li>Estructuras de Datos</li>
+                <li>Bases de Datos</li>
+                <li>Electrónica Digital</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function toggleMaterias(id) {
+            const materias = document.getElementById(id);
+            const span = materias.previousElementSibling.querySelector('span');
+            
+            if (materias.style.display === 'block') {
+                materias.style.display = 'none';
+                span.textContent = '▼';
+            } else {
+                materias.style.display = 'block';
+                span.textContent = '▲';
+            }
+        }
+    </script>
+</body>
+</html>
